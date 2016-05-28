@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Money Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script type="text/javascript" src="Scripts/jquery-1.11.3.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-big-grid.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/device-loop.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+    <!-- Nav animation trigger-->
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <!-- Nav animation trigger-->
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-74783872-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+  </head>
+<body data-spy="scroll" data-target="#header-nav-menu">
+    <div id="header"></div>
+    <!-- Slider -->
+    <div id="home">
+        <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item one active">
+                    <img src="images/IMG_3831.JPG" alt="...">
+                </div>
+                <div class="item two">
+                    <img src="images/IMG_3830.JPG" alt="...">
+                </div>
+                <div class="item three">
+                    <img src="images/model-2-png.png" alt="...">
+                </div>
+                <!--<div class="item four">
+                <img src="images/model-1.png" alt="...">
+            </div>
+            <div class="item five">
+                <img src="images/model-5.png" alt="...">
+            </div>-->
+            </div>
+        </div>
+        <!-- end slider -->
+        <!--end Slider Top section-->
+        <div class="row data-top-slider">
+            <div id="Hometopcontent" class="col-xs-10 col-xs-offset-1 col-sm-5  col-md-5 col-md-offset-1 col-lg-offset-1 col-lg-5">
+                <h2 >TRANFER RATE COMPARISON MADE EASY</h2>
+                <h4>Sending money abroad? It has never been easier.</h4>
+            </div>
+
+            <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-4 col-lg-offset-1 row">
+                <!--<form action="compare.html" method="post">-->
+                    <br />
+
+                    <div class="input-group col-xs-5 col-md-5 col-sm-5  col-lg-5">
+                        <span class="label label-default">YOU SEND</span>
+                    </div>
+                    <div class="input-group col-xs-12 col-md-12 col-sm-12 col-lg-12">
+
+                        <input type="text" class="form-control" aria-label="Amount" id="TxFromCur" onkeypress="return isDecimal(event)">
+                        <div class="input-group-btn select-btn-group">
+                            <select class="form-control" id="FromCur" title="Select" data-mobile="true"></select>
+                        </div><!-- /btn-group -->
+                    </div>
+
+                    <br />
+                    <div class="input-group col-xs-5 col-md-5 col-sm-5  col-lg-5">
+                        <span class="label label-default">YOU RECEIVE</span>
+                    </div>
+
+                    <div class="input-group col-xs-12 col-md-12 col-sm-12 col-lg-12">
+                        <input type="text" class="form-control" aria-label="Amount" id="TxToCur" onkeypress="return isDecimal(event)">
+                        <div class="input-group-btn select-btn-group">
+                            <select class="form-control" id="ToCur" title="Select" data-mobile="true">
+                            </select>
+                        </div><!-- /btn-group -->
+                    </div>
+
+                    <br />
+
+                    <div class="input-group col-xs-12 col-md-12 col-sm-12  col-lg-12 text-center">
+                        <button  class="btn btn-lg" id="get-started">Go</button>
+
+
+                    </div>
+
+
+                    <br />
+                <!--</form>-->
+            </div>
+        </div>
+        <!--end Slider Top section-->
+    </div>
+
+    <!-- Slider two -->
+    <!-- end Slider two -->
+    <!-- services -->
+<!--    <div class="bg-danger text-center">BETA: You are using beta version of Moneyscanner</div> -->
+    <section id="services">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0">
+                    <!--<h1>OUR AIM</h1>-->
+                    <h3 class="text-left">Are you sending money abroad and searching for the best deal?</h3>
+                    <h4 class="text-left">We've been there, too.</h4>
+                   <p class="text-justify"> We developed MoneyScanner, an online comparison tool, to help you save up to 90% of charges on your transactions as opposed to using your bank. With just one click you are now able to get all the important information for your foreign currency transfer.</p>
+                    <br/>
+                </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <img src="images/icons/HCompare.png" class="icon-d" />
+                        
+                        <h4> <strong>Comparison at a click</strong> </h4>
+
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <img src="images/icons/HTrust.png" class="icon-d" />
+                        
+                        <h4> <strong>Trusted services</strong> </h4>
+
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <img src="images/icons/HFree.png" class="icon-d" />
+                        
+                        <h4> <strong>Free and Accessible</strong> </h4>
+                    </div>
+<p class="text-justify col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0">
+    <br />
+                    Avoid bank fees when you send money abroad using online money transfer services. You can now compare exchange rates of various providers, fees charged per transaction, transfer speed and more of existing online remittance services, updated on a daily basis.
+
+                    <br/><br />
+                    Our service is completely free and accessible for everyone. We have done all the difficult tasks to find the best currency transfer companies for USD and INR transfers and we are glad to offer you our independent comparison. You don't need to sign up or provide us any information to use MoneyScanner.
+
+                    <br /><br />
+                    Use our tool for conversions from USD/GBP/EUR to INR/Yuan or vice versa as the case may be for clients dealing in such currencies. 
+                </p>
+            </div>
+        </div>
+        <br />
+    </section>
+    <!-- end services -->
+    <!-- Customer Reviews or feedbacks -->
+    <section id="carousel-reviews" class="well">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <video controls  style="width:100%;">
+                        <source src="videos/MONEYSCANNER.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <div class="quote"><i class="fa fa-quote-left fa-4x"></i></div>
+                    <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel">
+                        <!-- Carousel indicators -->
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <!--<div class="profile-circle" style="background-color: rgba(0,0,0,.2);"></div>-->
+                                <blockquote>
+                                    <p class="text-justify">
+                                        Its a pain to go through all bank sites and remittance websites to find out the best rate. I think MoneyScanner will resolve this problem. It will be a good platform. Got a chance to preview the platform prior to launch, its great.
+                                        Good luck to MoneyScanner!!
+                                    </p>
+                                    <small>Friends & Family USA</small>
+                                </blockquote>
+                            </div>
+                            <div class="item">
+                                <!--<div class="profile-circle" style="background-color: rgba(77,5,51,.2);"></div>-->
+                                <blockquote>
+                                    <p class="text-justify">Met MoneyScanner in the networking event, it sounds interesting. A lot people I know here see this problem of finding the best transfer rate as there are too many options and too many websites to scan through when transferring money from one country to another country. I transfer money to Germany, I see the same problem. I wish you implement this for Germany as well. :)</p>
+                                    <small>Stuart N, N/W event, Univ. of Edinburgh, Business School</small>
+                                </blockquote>
+                            </div>
+                            <div class=" item">
+                                <!--<div class="profile-circle" style="background-color: rgba(145,169,216,.2);"></div>-->
+                                <blockquote>
+                                    <p class="text-justify">Met MoneyScanner in CodeBase event, its a great idea. I send money to my family in India. This will really help save money and time. I will definitely use this platform. Wish you all the best MoneyScanner</p>
+                                    <small>Rajaram K, N/W event, Edinburgh, UK</small>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <a href="/compare.html" class="btn btn-info">Transfer comparison</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Customer reviews or feedbacks -->
+    <!--<section id="mobilfriendly">
+        <div class="container">
+            <div>
+                <h1 class="text-center">Mobile Friendly</h1>
+                <div class="col-md-6 text-center">
+                    <h4> <strong>DOWNLOAD APP HERE</strong> </h4>
+                    <p>
+                        <a href="#">
+                            <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+                        </a>
+                        <a href="#"><img src="images/icons/download-app-store1.png" alt="iPhone APP"></a>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="animation" data-animation-step="1">
+                        <div class="device">
+                            <div class="phone-home-button"></div>
+                            <div class="tablet-home-button"></div>
+                            <div class="screen-stand"><div class="leg"></div><div class="foot"></div></div>
+                            <div class="display">
+                                <div class="slide1"><div>Browse on <em>desktops</em></div></div>
+                                <div class="slide2"><div>Browse on <em>tablets</em></div></div>
+                                <div class="slide3"><div>Browse on <em>phones</em></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <div id="footer"></div>
+    <script src="js/custom.js"></script>
+    <script>
+	$('#fade-quote-carousel').carousel({
+	  interval: 1000 * 30
+	});
+
+        //var duration = 7000, steps = 3, step = 1;
+        //setInterval(function () {
+        //    document.querySelector('.animation').setAttribute('data-animation-step', step = ++step > steps ? 1 : step);
+        //}, duration / steps);
+        var serviceurl = "http://services.moneyscanner.net/";
+
+        $(document).ready(function () {
+            $('#TxFromCur').val('1000');
+            function GetToTxVal(FromCurVal2, ToCurVal2, FromTxVal) {
+                //alert(FromTxVal + ' ' + FromCurVal2 + ' ' + ToCurVal2);
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/gettovalue/",
+                    data: {
+                        "strfromval": FromTxVal,
+                        "strFCurr": FromCurVal2,
+                        "strTCurr": ToCurVal2
+                    },
+                    success: function (da) {
+                        $('#TxToCur').val(da);
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+            function GetFromTxVal(FromCurVal0, ToCurVal0, ToTxVal0) {
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/getfromvalue/",
+                    data: {
+                        "strtoval": ToTxVal0,
+                        "strFCurr": FromCurVal0,
+                        "strTCurr": ToCurVal0
+                    },
+                    success: function (da) {
+                        $('#TxFromCur').val(da);
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+            function GetFromCur() {
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/GetFromCur/",
+                    success: function (da) {
+                        $('#FromCur')
+                                .find('option')
+                                .remove()
+                        ;
+                        if (da.length == 0) {
+                            $('#FromCur').append($('<option>').text('Select').attr('value', 'Select'));
+                            console.log("NO DATA!")
+                        } else {
+                            $.each(da, function (i, value) {
+                                $('#FromCur').append($('<option>').text(value).attr('value', value));
+                            });
+                            $('#FromCur').val('USD');
+                            GetToCur('INR');
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+            GetFromCur();
+            function GetToCur(ToCurVal1) {
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/GetToCur/",
+                    data: {
+                        "strfrom": $('#FromCur').val()
+                    },
+                    success: function (da) {
+                        $('#ToCur')
+                                .find('option')
+                                .remove()
+                        ;
+                        if (da.length == 0) {
+                            $('#ToCur').append($('<option>').text('Select').attr('value', 'Select'));
+                            console.log("NO DATA!")
+                        } else {
+                            $.each(da, function (i, value) {
+                                $('#ToCur').append($('<option>').text(value).attr('value', value));
+                            });
+                            if (ToCurVal1 != undefined) {
+                                $("#ToCur").val(ToCurVal1);
+                                GetToTxVal($('#FromCur').val(), ToCurVal1, $('#TxFromCur').val());
+                            } else {
+                                $("#ToCur").val($("#ToCur option:first").val());
+                                GetToTxVal($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val());
+                            }
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+            $('select').change(function () {
+                if (this.id === 'FromCur') {
+                    GetToCur();
+                } else if (this.id === 'ToCur') {
+                    GetToTxVal($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val());
+                }
+            });
+            $("#TxFromCur").keyup(function () {
+                if ($("#TxFromCur").val() != '') {
+                    GetToTxVal($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val());
+                } else {
+                    GetToTxVal($('#FromCur').val(), $('#ToCur').val(), 0);
+                }
+            });
+            $("#TxToCur").keyup(function () {
+                if ($("#TxToCur").val() != '') {
+                    GetFromTxVal($('#FromCur').val(), $('#ToCur').val(), $('#TxToCur').val());
+                } else {
+                    GetFromTxVal($('#FromCur').val(), $('#ToCur').val(), 0);
+                }
+            });
+            $('#get-started').click(function () {
+                localStorage.setItem("FromTxVal", $('#TxFromCur').val());
+                localStorage.setItem("ToTxVal", $('#TxToCur').val());
+                localStorage.setItem("FromCur", $('#FromCur').val());
+                localStorage.setItem("ToCur", $('#ToCur').val());
+                location.href = "compare.html";
+            });
+        });
+        var k = 1;
+        var h2cnt='TRANFER RATE COMPARISON MADE EASY';
+        var h4cnt = 'Sending money abroad? It has never been easier.';
+        $('#carousel').bind('slide.bs.carousel', function (e) {
+            
+            if (k == 0 ) {
+                var h2cnt = 'TRANFER RATE COMPARISON MADE EASY';
+                var h4cnt = 'Sending money abroad? It has never been easier.';
+                $('#Hometopcontent h2').css('color', 'black');
+                $('#Hometopcontent h4').css('color', 'black');
+            } else if (k == 1) {
+                var h2cnt = 'SAVE UP TO 90% OF YOUR TRANSACTION';
+                var h4cnt = 'Discover hidden bank fees. Our Comparison of various remittance services in independent and transparent.';
+                if ($(window).width() > 768) {
+                    $('#Hometopcontent h2').css('color', '#fff');
+                    $('#Hometopcontent h4').css('color', '#fff');
+                }
+               
+            } else {
+                var h2cnt = 'WE DID ALL THE HARD WORK';
+                var h4cnt = 'Always get the updated information of exchange rates,<br/>transfer speed and lots more about existing remittance services.';
+                if ($(window).width() > 768) {
+                    $('#Hometopcontent h2').css('color', '#fff');
+                    $('#Hometopcontent h4').css('color', '#fff');
+                }
+            }
+            if (++k >= 3) {
+                k = 0;
+            }
+            $('#Hometopcontent h2').html(h2cnt);
+            $('#Hometopcontent h4').html(h4cnt);
+        });
+        
+    </script>
+    <input type="hidden" id="currentpage" value="home">
+</body>
+</html>

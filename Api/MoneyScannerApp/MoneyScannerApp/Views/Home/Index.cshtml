@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+    <input id="txtUsername" type="text"/>
+    <input id="txtPassword" type="password"/>
+
+    <input id="btnLogin" type="button" value="Login"/>
+    <a href="#" id="btnforgotpassword">Forgotpassword</a>
+   
+
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+    var serviceurl = "http://localhost:49533/";
+
+    $(document).ready(function () {
+
+        $("#btnLogin").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: serviceurl + "Account/Loginuser/",
+                data: {
+                    "Email": $("#txtUsername").val(),
+                    "Password": $("#txtPassword").val(),
+                    "RememberMe": false
+                },
+                success: function (da) {
+                    localStorage.setItem("Login", da);
+
+                    // change menu UI fron login to logout and remove register button.
+
+                },
+                error: function (xhr, ajaxOptions, throwError) {
+                    localStorage.setItem("Login", "");
+                }
+            });
+
+        });
+
+        $("#btnforgotpassword").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: serviceurl + "Account/ForgotPasswordUser/",
+                data: {
+                    "Email": $("#txtUsername").val()
+
+                },
+                success: function (da) {
+                    localStorage.setItem("sentemail", da);
+                    // show password reset email sent to email account
+
+                },
+                error: function (xhr, ajaxOptions, throwError) {
+                    localStorage.setItem("sentemail", "");
+                }
+            });
+
+        });
+
+    });
+</script>

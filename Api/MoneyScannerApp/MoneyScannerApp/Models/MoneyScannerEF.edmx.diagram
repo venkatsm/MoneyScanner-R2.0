@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bd56c23c13e4508be6440f674774334" Name="Diagram1" ZoomLevel="91">
+        <EntityTypeShape EntityType="MoneyScannerModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.AspNetRole" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.AspNetUser" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.ContactU" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.Coupon" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.Provider" Width="1.5" PointX="7.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.TransferBase" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoneyScannerModel.TransferLog" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="MoneyScannerModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MoneyScannerModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MoneyScannerModel.FK_TransferLog_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="MoneyScannerModel.FK_TransferBase_Providers" ManuallyRouted="false" />
+        <AssociationConnector Association="MoneyScannerModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

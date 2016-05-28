@@ -1,0 +1,400 @@
+﻿
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="images/Money_Scanner.png" id="MSlogo" class="hidden-sm hidden-xs"><img src="images/MS_T_S_LOGO.png" id="MSMobilelogo" class="visible-xs visible-sm"></a>
+        </div>
+        <div class="navbar-collapse collapse" id="header-nav-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li id="home"><a href="index.html">Home</a></li>
+                <li id="how-works"><a href="howitwork.html">How it works</a></li>
+                <li id="comparelink"><a href="compare.html">Transfer comparison</a></li>
+                <li id="contact"><a href="contact.html">Why us?</a></li>
+               <!-- <li id="couponlink"><a href="coupons.html">Coupons & Promotions</a></li> -->
+                <li id="signinlink" class=""><a href="#signin" data-toggle="modal" data-target="#signin" id="loginc">Log-In</a></li>
+                <li id="signuplink"><a href="#signup" data-toggle="modal" data-target="#signup" id="Registerc">Sign-Up</a></li>
+                <li id="username" class="hide"><a href="Account.html" id="username-a">My profile</a></li>
+                <li id="logout" class="hide"><a href="index.html" id="logout-a">Log Out</a></li>
+                <!--<li id="contact"><a href="contact.html">Contact Us</a></li> -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- SignUp form -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signuplLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-bg-Register">
+            <div class="modal-header">
+                <img src="../images/m-5.png" style="width:90px;margin-top:-51px;margin-left: 35px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Join Moneyscanner Today</h4>
+            </div>
+            <div class="modal-body">
+                <div class="omb_login">
+                    <!-- <div class="row omb_row-sm-offset-3 omb_socialButtons">
+                    <div class="col-xs-4 col-xs-offset-0 col-sm-3  col-sm-offset-1 col-lg-offset-1 col-lg-3 col-md-3 col-md-offset-1">
+                        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-lg-3 col-md-3">
+                        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-lg-3 col-md-3">
+                        <a href="#" class="btn btn-lg btn-block omb_btn-google">
+                            <i class="fa fa-google-plus "></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row omb_row-sm-offset-3 omb_loginOr">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                        <hr class="omb_hrOr">
+                        <span class="omb_spanOr">or</span>
+                    </div>
+                </div> -->
+
+                    <div class="row omb_row-sm-offset-3">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                            <form class="omb_loginForm "  autocomplete="off" method="POST" id="register-form">
+                                <div class="input-group required reg-field">
+                                    <span class="input-group-addon"><img src="images/icons/users81.png" /></span>
+                                    <input type="text" class="form-control" required name="firstname" id="firstname" placeholder="First Name">
+                                </div>
+                                <span class="help-block"></span>
+
+                                <div class="input-group required reg-field">
+                                    <span class="input-group-addon"><img src="images/icons/users81.png" /></span>
+                                    <input type="text" class="form-control " required name="lastname" id="lastname" placeholder="Last Name">
+                                </div>
+                                <span class="help-block"></span>
+
+
+
+                                <div class="input-group required reg-field">
+                                    <span class="input-group-addon"><img src="images/icons/envelope68.png" /></span>
+                                    <input type="email" class="form-control " required name="email" id="email" placeholder="Email Address">
+                                </div>
+                                <span class="help-block"></span>
+                                <div class="input-group required reg-field">
+                                    <span class="input-group-addon"><img src="images/icons/closed.png" /></span>
+                                    <input type="password" class="form-control " required name="password" id="password" placeholder="Password">
+                                </div>
+                                <span class="help-block"></span>
+                                <div class="input-group required hide">
+                                    <span class="input-group-addon"><img src="images/icons/iphone26.png" /></span>
+                                    <input type="text" class="form-control " required onkeypress="return isNumber(event)" name="phone" id="phone" placeholder="Phone Number" value="0000000000">
+                                </div>
+                                <span class="help-block"></span>
+
+                                <div class="input-group hide">
+                                    <span class="input-group-addon"><img src="images/icons/urban.png" /></span>
+                                    <input type="text" class="form-control " name="state" id="state" placeholder="State" value="state">
+                                </div>
+                                <span class="help-block"></span>
+
+                                <div class="input-group hide">
+                                    <span class="input-group-addon"><img src="images/icons/location71.png" /></span>
+                                    <input type="text" class="form-control " name="city" id="city" placeholder="City" value="city">
+                                </div>
+                                <span class="help-block"></span>
+
+                                <div class="input-group required hide">
+                                    <span class="input-group-addon"><img src="images/icons/location71.png" /></span>
+                                    <input type="text" required class="form-control " onkeypress="return isNumber(event)"  name="pincode" id="pincode" placeholder="Zip/Pin Code" value="000000">
+                                </div>
+                                <span class="help-block"></span>
+
+
+                                <div class="input-group required reg-field">
+                                    <span class="input-group-addon"><img src="images/icons/Waving_Flag_16.png" /></span>
+                                    <input type="text" class="form-control " required name="Country" id="country" placeholder="Country">
+                                </div>
+                                <span class="help-block bg-danger hide" id="reg-err"></span>
+                                <br/>
+                                <button class="btn btn-lg btn-primary btn-block reg-field" type="submit">Create Account</button>
+                                <button class="btn btn-lg btn-primary btn-block hide" id="reg-login" type="button">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="signin-model">Login</button>
+        </div> -->
+        </div>
+    </div>
+</div>
+<!-- End SignUp form -->
+<!-- SignIN form -->
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="signinlLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-bg-login">
+            <div class="modal-header">
+                <img src="../images/m-5.png" style="width:90px;margin-top:-51px;margin-left: 35px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Login to Moneyscanner</h4>
+            </div>
+            <div class="modal-body">
+                <div class="omb_login">
+                    <!-- <div class="row omb_row-sm-offset-3 omb_socialButtons">
+                    <div class="col-xs-4 col-xs-offset-0 col-sm-3  col-sm-offset-1 col-lg-offset-1 col-lg-3 col-md-3 col-md-offset-1">
+                        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+                            <i class="fa fa-facebook "></i>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-lg-3 col-md-3">
+                        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+                            <i class="fa fa-twitter "></i>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-3 col-lg-3 col-md-3">
+                        <a href="#" class="btn btn-lg btn-block omb_btn-google">
+                            <i class="fa fa-google-plus "></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row omb_row-sm-offset-3 omb_loginOr">
+                    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                        <hr class="omb_hrOr">
+                        <span class="omb_spanOr">or</span>
+                    </div>
+                </div> -->
+
+                    <div class="row omb_row-sm-offset-3">
+                        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                            <form action="" id="loginform">
+                                <div class="input-group required">
+                                    <span class="input-group-addon"><img src="images/icons/users81.png" /></span>
+                                    <input type="email" class="form-control " required id="txtUsername" name="username" placeholder="email address">
+                                </div>
+                                <span class="help-block"></span>
+
+                                <div class="input-group required" id="passwordfield">
+                                    <span class="input-group-addon"><img src="images/icons/closed.png" /></span>
+                                    <input type="password" id="txtPassword" required class="form-control" name="password" placeholder="Password">
+                                </div>
+                                <span class="help-block bg-danger hide" id="login-err"></span><br/>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnLogin">Login</button>
+                                <button class="btn btn-lg btn-primary btn-block hide" type="button" id="reset">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row omb_row-sm-offset-3">
+                        <div class="col-xs-5 col-xs-offset-0 col-sm-4 col-sm-offset-1 col-md-4 col-lg-4 col-lg-offset-1 col-md-offset-1">
+                            <!--  <label class="checkbox remember-me">
+                              <input type="checkbox" value="remember-me">Remember Me
+                          </label> -->
+                        </div>
+                        <div class="col-xs-5 col-xs-offset-2 col-sm-4 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+                            <p class="omb_forgotPwd">
+                                <a href="#" id="forgotpswd">Forgot password?</a>
+                                <a href="#" id="forgotpswd-back" class="hide">Back to login</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="signup-model">Register</button>
+        </div>-->
+        </div>
+    </div>
+</div>
+<!-- End SignIN form -->
+<script type="text/javascript">
+    var serviceurl = "http://services.moneyscanner.net/";
+
+    $(document).ready(function () {
+        $('.reg-field').removeClass('hide');
+        $(window).scroll(function () {
+            if ($(".navbar").offset().top > 50) {
+                $(".navbar-inverse").addClass("navbar-onscroll");
+            } else {
+                $(".navbar-inverse").removeClass("navbar-onscroll");
+            }
+        });
+        if (localStorage.getItem("username") && localStorage.getItem("username") != "") {
+            $('#signinlink').addClass('hide');
+            $('#signuplink').addClass('hide');
+            $('#logout').removeClass('hide');
+            $('#username').removeClass('hide');
+           // $('#username-a').html(localStorage.getItem("username"));
+        }
+        $('#forgotpswd').click(function () {
+            $("#passwordfield").addClass('hide');
+            $("#btnLogin").addClass('hide');
+            $("#reset").removeClass('hide');
+            $("#forgotpswd-back").removeClass('hide');
+            $("#forgotpswd").addClass('hide');
+            $('#login-err').addClass('hide');
+            return false;
+        });
+        $('#forgotpswd-back').click(function () {
+            $("#passwordfield").removeClass('hide');
+            $("#btnLogin").removeClass('hide');
+            $("#reset").addClass('hide');
+            $("#forgotpswd").removeClass('hide');
+            $("#forgotpswd-back").addClass('hide');
+            $('#login-err').addClass('hide');
+            return false;
+        });
+        $('#logout-a').click(function () {
+            localStorage.setItem("username", "");
+        });
+        $('#reg-login').click(function () {
+            $('#signup').modal('hide').on('hidden.bs.modal', function (e) {
+                $('#signin').modal('show');
+                $(this).off('hidden.bs.modal'); // Remove the 'on' event binding
+            });
+        });
+        $('#register-form').submit(function () {
+            //alert($("#email").val() + ' ' + $("#firstname").val() + ' ' + $("#lastname").val() + ' ' + $("#state").val() + ' ' + $("#city").val() + ' ' + $("#pincode").val() + ' ' + $("#country").val() + ' ' + $("#password").val() + ' ' + $("#phone").val());
+            $('#reg-err').removeClass('bg-success');
+            $('#reg-err').addClass('bg-danger');
+            $.ajax({
+                crossDomain: true,
+                cache: false,
+                type: "POST",
+                url: serviceurl + "Account/RegisterUser/",
+                data: {
+                    "UserName": $("#email").val(),
+                    "Email": $("#email").val(),
+                    "FirstName": $("#firstname").val(),
+                    "LastName": $("#lastname").val(),
+                    "State": $("#state").val(),
+                    "City": $("#city").val(),
+                    "Zipcode": $("#pincode").val(),
+                    "Country": $("#country").val(),
+                    "Password": $("#password").val(),
+                    "Confirmpassword": $("#password").val(),
+                    "Phone": $("#phone").val()
+                   
+                },
+                success: function (da) {
+                    localStorage.setItem("Register", da);
+                    if (da === "Succeeded") {
+                        $('#reg-err').html("Verification email has been sent to you email id. Please verify.");
+                        $('#reg-err').removeClass('hide');
+                        $('.reg-field').addClass('hide');
+                        $('#reg-login').removeClass('hide');
+                        $('#reg-err').removeClass('bg-danger');
+                        $('#reg-err').addClass('bg-success');
+                       // localStorage.setItem("username", $('#email').val());
+                        //$('#signinlink').addClass('hide');
+                        //$('#signuplink').addClass('hide');
+                        //$('#logout').removeClass('hide');
+                        //$('#username').removeClass('hide');
+                        //$('#username-a').html($('#email').val());
+                        //$('#signup').modal('hide').on('hidden.bs.modal', function (e) {
+                        //    $(this).off('hidden.bs.modal'); // Remove the 'on' event binding
+                        //});
+                    } else {
+                        $('#reg-err').html(da);
+                        $('#reg-err').removeClass('hide');
+                    }
+                    // change menu UI fron login to logout and remove register button.
+                },
+                error: function (xhr, ajaxOptions, throwError) {
+                    localStorage.setItem("Register", "");
+                }
+            });
+            return false;
+        });
+        $("#loginform").submit(function () {
+            $('#login-err').removeClass('bg-success');
+            $('#login-err').addClass('bg-danger');
+            $.ajax({
+                crossDomain: true,
+                cache: false,
+                type: "POST",
+                url: serviceurl + "Account/Loginuser/",
+                data: {
+                    "Email": $("#txtUsername").val(),
+                    "Password": $("#txtPassword").val(),
+                    "RememberMe": false
+                },
+                success: function (da) {
+                    localStorage.setItem("Login", da);
+                    if (da === "Success") {
+                        localStorage.setItem("username", $('#txtUsername').val());
+                        $('#signinlink').addClass('hide');
+                        $('#signuplink').addClass('hide');
+                        $('#logout').removeClass('hide');
+                        $('#username').removeClass('hide');
+                       // $('#username-a').html($('#txtUsername').val());
+                        if (localStorage.getItem("cemail") && localStorage.getItem("cemail") != "") {
+                            localStorage.setItem("cemail", "");
+                            window.location="index.html";
+                        }
+                        $('#signin').modal('hide').on('hidden.bs.modal', function (e) {
+                            $(this).off('hidden.bs.modal'); // Remove the 'on' event binding
+                        });
+                        
+                    } else {
+                        var rs = da;
+                        if (da === "Failure") {
+                            rs = "Invalid Username and Password";
+                        }
+                        $('#login-err').html(rs);
+                        $('#login-err').removeClass('hide');
+                    }
+                    // change menu UI fron login to logout and remove register button.
+
+                },
+                error: function (xhr, ajaxOptions, throwError) {
+                    localStorage.setItem("Login", "");
+                }
+            });
+            return false;
+        });
+        
+
+        $("#reset").click(function () {
+
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: serviceurl + "Account/ForgotPasswordUser/",
+                data: {
+                    "Email": $("#txtUsername").val()
+                },
+                success: function (da) {
+                    localStorage.setItem("sentemail", da);
+                    // show password reset email sent to email account
+                    if (da === "Succeeded") {
+                        $("#passwordfield").removeClass('hide');
+                        $("#btnLogin").removeClass('hide');
+                        $("#reset").addClass('hide');
+                        $("#forgotpswd").removeClass('hide');
+                        $("#forgotpswd-back").addClass('hide');
+                        $('#login-err').removeClass('hide');
+                        $('#login-err').removeClass('bg-danger');
+                        $('#login-err').addClass('bg-success');
+                        $('#login-err').html("Please check email to reset your password");
+
+                    } else {
+                        $('#login-err').html(da);
+                        $('#login-err').removeClass('hide');
+                    }
+                },
+                error: function (xhr, ajaxOptions, throwError) {
+                    localStorage.setItem("sentemail", "");
+                }
+            });
+
+        });
+
+    });
+</script>

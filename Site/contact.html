@@ -1,0 +1,244 @@
+﻿<!doctype html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Money Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="text/javascript" src="Scripts/jquery-1.11.3.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-big-grid.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/device-loop.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Nav animation trigger-->
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+
+    <!-- Nav animation trigger-->
+    <script src="js/custom.js"></script>
+</head>
+<body data-spy="scroll" data-target="#header-nav-menu">
+    <input type="hidden" id="currentpage" value="contact">
+    <div id="header"></div>
+    <!-- About Us -->
+    <section id="aboutus">
+    <!--    <div class="bg-danger text-center">BETA: You are using beta version of Moneyscanner</div> -->
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1>About Us</h1>
+                    <h4 class="text-left">We understand the value of your money</h4>
+                    <p class="text-justify">
+                        With all the various policies and guidelines associated to money sending services, we know from our own personal experience that sending money abroad is a rather challenging task to undertake.
+                        Whether you are studying or working in a foreign country, purchasing a property abroad or making large investments of any sort in any country the major concern you face is how to locate the perfect company that can handle your particular sums of transfers without any hitch in services and at the best rates affordable.
+                        That's why we developed MoneyScanner: the tool to provide you with the list of the existing remittance services compared at a single place. Problem solved, money saved!
+                        <br/><br/><button type="button" class="btn btn-info" id="mor-button">I WANT TO KNOW MORE ABOUT REMITTANCE METHODS</button>
+                    </p>
+                   
+                    <p class="text-justify" id="mor-content" style="display:none">
+                        Remittance is a complex method to comprehend. The sole most significant factor leading to lofty remittance rates is a lack of transparency in the market. It is complicated for consumers to compare rates because there are quite a number of variables that structure remittance prices. Prices for remittances are often made up of a fee charged for transferring a certain sum of money, a margin charged on the exchange rate when remittances are sent and received in various currencies, and, sometimes, the recipient of the funds is charged a certain fee. These fee workings may also fluctuate based to how the receiver is paid (i.e. by crediting an account or in cash), the possibility of the sender providing the recipient’s information (i.e. bank account details) and the transfer speed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About Us -->
+    <section id="carousel-reviews" class="well">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <video controls style="width:100%;">
+                        <source src="videos/MONEYSCANNER.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="col-md-6">
+                    <div class="quote"><i class="fa fa-quote-left fa-4x"></i></div>
+                    <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel">
+                        <!-- Carousel indicators -->
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <!--<div class="profile-circle" style="background-color: rgba(0,0,0,.2);"></div>-->
+                                <blockquote>
+                                    <p class="text-justify">
+                                        Its a pain to go through all bank sites and remittance websites to find out the best rate. I think MoneyScanner will resolve this problem. It will be a good platform. Got a chance to preview the platform prior to launch, its great.
+                                        Good luck to MoneyScanner!!
+                                    </p>
+                                    <small>Friends & Family USA</small>
+                                </blockquote>
+                            </div>
+                            <div class="item">
+                                <!--<div class="profile-circle" style="background-color: rgba(77,5,51,.2);"></div>-->
+                                <blockquote>
+                                    <p class="text-justify">Met MoneyScanner in the networking event, it sounds interesting. A lot people I know here see this problem of finding the best transfer rate as there are too many options and too many websites to scan through when transferring money from one country to another country. I transfer money to Germany, I see the same problem. I wish you implement this for Germany as well. :)</p>
+                                    <small>Stuart N, N/W event, Univ. of Edinburgh, Business School</small>
+                                </blockquote>
+                            </div>
+                            <div class=" item">
+                                <!--<div class="profile-circle" style="background-color: rgba(145,169,216,.2);"></div>-->
+                                <blockquote>
+                                    <p class="text-justify">Met MoneyScanner in CodeBase event, its a great idea. I send money to my family in India. This will really help save money and time. I will definitely use this platform. Wish you all the best MoneyScanner</p>
+                                    <small>Rajaram K, N/W event, Edinburgh, UK</small>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <a href="/compare.html" class="btn btn-info">Transfer comparison</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!--Contact us-->
+    <section id="contactus" class="well">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1>OUR CONTACT DETAILS</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-md-7">
+                <iframe class="cnt" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d71503.33505408216!2d-3.20538355!3d55.94106555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887b800a5982623%3A0x64f2147b7ce71727!2sEdinburgh%2C+UK!5e0!3m2!1sen!2sin!4v1441786458777"></iframe>
+                <div class="add">
+                   <!-- <i>Address: </i>Flat no , Name,  Street Junction Area, Phoenix, AZ, USA -->
+                    <br />
+                </div>
+            </div>
+            <div class="col-md-5">
+                <form class="form-horizontal" method="post" id="contactform">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-10">
+                                <input id="fname" name="name" type="text" placeholder="Name" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <div class="col-md-10">
+                                <input id="email" name="email" type="email" placeholder="Email Address" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                            <div class="col-md-10">
+                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control" onkeypress="return isNumber(event)" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-10">
+                                <textarea class="form-control" id="message" name="message" placeholder="Enter your message for us here. We will get back to you within 2 business days." rows="7" required></textarea>
+                            </div>
+                        </div>
+                        <span class="help-block bg-danger hide" id="contact-err"></span><br>
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <hr />
+
+    </section>
+    <!--End Contact Us -->
+
+    <div id="footer"></div>
+    <script>
+
+        $(document).ready(function () {
+            $('#fade-quote-carousel').carousel({
+                interval: 1000 * 30
+            });
+            var serviceurl = "http://services.moneyscanner.net/";
+            $('#mor-button').click(function () {
+                $('#mor-content').toggle();
+            });
+            $('#contactform').submit(function () {
+                $('#contact-err').removeClass('bg-success');
+                $('#contact-err').addClass('bg-danger');
+				if($('#fname').val() === '' ||
+					$('#fname').val() === '' ||
+					$('#fname').val() === '' ||
+					$('#fname').val() === '') {
+						$('#contact-err').html("Please fill all the feilds");
+                        $('#contact-err').addClass('bg-danger');
+					}
+					
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/contactusdetails/",
+                    data: {
+                        "name": $('#fname').val(),
+                        "emailid": $('#email').val(),
+                        "phoneno": $('#phone').val(),
+                        "messagetext":$('#message').val()
+                    },
+                    success: function (da) {
+                        if (da === "Succeeded") {
+                            $('#contact-err').html("Successfully saved, we will contact you shortly");
+                            $('#contact-err').removeClass('bg-danger');
+                            $('#contact-err').addClass('bg-success');
+                            $('#contact-err').removeClass('hide');
+                            $('#fname').val("");
+                            $('#email').val("");
+                            $('#phone').val("");
+                            $('#message').val("");
+                        }
+                        else {
+                            $('#contact-err').html(da);
+                            $('#contact-err').removeClass('hide');
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

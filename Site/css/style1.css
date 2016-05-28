@@ -1,0 +1,106 @@
+body{
+  position: relative;
+}
+.row{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.my-nav{
+  margin-bottom: 0px;
+  background: #fff;
+ }
+.my-nav .navbar-toggle{
+	  background-color: rgba(0,0,0,0.5);
+	  float: none;
+}
+.my-nav .navbar-toggle .icon-bar{
+	  background-color: rgba(100, 190, 245, 1);
+}
+.my-nav .container-fluid>.navbar-header{
+	text-align: center;
+}
+.my-nav .navbar-nav {
+  margin: 7.5px -15px;
+  text-align: left;
+}
+.top-head{
+  width:100%; 
+  height:100%;
+	padding-top: 100px;
+}
+.top-row{
+	background:linear-gradient(rgba(100, 190, 245,.5), rgba(100, 190, 245,.5)),url(../images/bg.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+  margin-top: 65px;
+  min-height: 620px;
+}
+.animated {
+
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  width: 210px;
+  margin-top: 5px;
+ }
+@keyframes slideInRight {
+  0% {
+  		opacity: 0;
+    -webkit-transform: translate3d(30%, 0, 0);
+    transform: translate3d(30%, 0, 0);
+  }
+  100% {
+  	opacity: 1;
+    -webkit-transform: translate3d(15%, 0, 0);
+    transform: translate3d(15%, 0, 0);
+  }
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  animation-delay:4s;
+  -webkit-animation-delay:4s;
+}
+/* code for animated blinking cursor */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        div#head-type {
+ 			text-align: center;
+  			color: #fff;
+  			font-size: 2em;
+  			padding-top: 30px;
+		}

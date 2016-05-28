@@ -1,0 +1,559 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Money Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="text/javascript" src="Scripts/jquery-1.11.3.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-big-grid.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/device-loop.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Nav animation trigger-->
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+    <!-- Nav animation trigger-->
+    <script src="js/custom.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#compare-popup').modal({
+                backdrop: 'static',
+                show: false
+            });
+            var count = 0;
+            var countdown = setInterval(function () {
+                $(".progress-bar").css("width", count + "%");
+                $(".progress-bar").attr("aria-valuenow", count + "%");
+                if (count == 100) {
+                    clearInterval(countdown);
+                    $('#compare-popup').modal('hide').on('hidden.bs.modal', function (e) {
+                        $(this).off('hidden.bs.modal'); // Remove the 'on' event binding
+                    });
+                }
+                count++;
+            }, 200);
+        });
+    </script>
+
+</head>
+<body data-spy="scroll" data-target="#header-nav-menu">
+    <input type="hidden" id="currentpage" value="comparelink">
+    <div id="header"></div>
+    
+    <section  id="compare">
+      <!--  <div class="bg-danger text-center">BETA: You are using beta version of Moneyscanner</div> -->
+        <div class="container">
+           
+            <!-- Popup Modal -->
+            <div class="modal fade" id="compare-popup" tabindex="-1" role="dialog" aria-labelledby="compare-popupLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                            <h2>Loading....</h2>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12  ">
+                <h2>Compare Money Transfer Services</h2>
+                <hr>
+                <p>This tool will help you assess the differences and benefits between the diverse money transfers services based on features like their exchange rates, transfer speed, services offered, and lots more. Check the tool for yourself!</p>
+                <!-- <div class="thumbnail">
+                    <div class="caption text-center">
+                        
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-9499017033591601"
+                             data-ad-slot="8291834177"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-4  text-center">
+                        <div class="input-group">
+                            <span class="input-group-addon">YOU SEND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input type="text" class="form-control" aria-label="Amount" id="TxFromCur" onkeypress="return isDecimal(event)">
+                            <div class="input-group-btn">
+                                <select class="form-control" data-mobile="true" id="FromCur" title="Select"></select>
+                            </div><!-- /btn-group -->
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-md-4  text-center">
+                        <div class="input-group">
+                            <span class="input-group-addon">YOU RECEIVE</span>
+                            <input type="text" class="form-control" aria-label="Amount" id="TxToCur" onkeypress="return isDecimal(event)">
+                            <div class="input-group-btn">
+                                <select class="form-control" data-mobile="true" id="ToCur"></select>
+                            </div><!-- /btn-group -->
+                        </div>
+                        <br />
+
+                    </div>
+                    <div class="col-md-4 text-left ">
+                        <button class="btn btn-info" id="compare-btn">Compare</button>
+                        <br/><br />
+                    </div>
+                    
+		    <div class="col-md-10 ">
+                <div class="thumbnail row filter-div">
+                    <div class="col-xs-12 col-md-2 col-sm-2">
+                        <label>
+                            Filter by :
+                        </label>
+                    </div>
+                    
+                        <div class="filter-group" id="todaysrate-group">
+                            <button type="button" class="btn btn-info filter-btn" id="todaysrate">Today's rate</button>
+                            <button type="button" class="btn btn-info dropdown-toggle hide filter-AD-btn" id="todaysrate-sub" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <!--<span class="sr-only">dorpdown</span>-->
+                            </button>
+                            <!--<ul class="dropdown-menu hide" >
+                    <li><a href="#" id="Asc-todaysrate">Asc</a></li>
+                    <li><a href="#" id="Asc-todaysrate">Desc</a></li>
+                </ul>-->
+                        </div>
+                
+                    
+                        <div class="filter-group" id="transferfee-group">
+                            <button type="button" class="btn btn-info filter-btn" id="transferfee">Transfer Fee</button>
+                            <button type="button" class="btn btn-info dropdown-toggle hide filter-AD-btn" id="transferfee-sub" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <!--<span class="sr-only">dorpdown</span>-->
+                            </button>
+                        </div>
+                
+                    <div class="col-xs-12 visible-xs-block visible-sm-block"></div>
+                    
+                        <div class="filter-group" id="amountreceived-group">
+                            <button type="button" class="btn btn-info filter-btn" id="amountreceived">Amount Receive</button>
+                            <button type="button" class="btn btn-info dropdown-toggle hide filter-AD-btn" id="amountreceived-sub" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <!--<span class="sr-only">dorpdown</span>-->
+                            </button>
+                        </div>
+              
+                  
+                        <div class="filter-group" id="transfertime-group">
+                            <button type="button" class="btn btn-info filter-btn" id="transfertime">Transfer Time</button>
+                            <button type="button" class="btn btn-info dropdown-toggle hide filter-AD-btn" id="transfertime-sub" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <!--<span class="sr-only">dorpdown</span>-->
+                            </button>
+                        </div>
+                
+                </div> 
+                        <ul class="list-group " id="comparelist-grid">
+                            <li class="list-group-item row text-center hidden-xs">
+                                <div class="col-sm-2 col-md-2"></div>
+                                <div class="col-sm-2 col-md-2">Today's Rate</div>
+                                <div class="col-sm-2 col-md-2">Transfer Fee</div>
+                                <div class="col-sm-2 col-md-2">Amount Receive</div>
+                                <div class="col-sm-2 col-md-2">Transfer Time</div>
+                                <div class="col-sm-2 col-md-2"></div>
+                            </li>
+                            <li class="list-group-item text-center row">
+                                <div class="col-md-12 text-center">
+                                    Please wait fetching Values
+                                </div>
+                            </li>
+
+                        </ul>
+                        <p class="text-justify">
+                            MoneyScanner team is constantly working on maintaining the data as accurate as possible. For most accurate rate, please use the redirect link  (Send). MoneyScanner is not responsible for these rates, these rates are completely under the control of the financial institution you are using for your Money transfer.
+                            <br /><span style="color:green">* Transfer rates displayed here is  based on the 1000 GBP/USD/INR</span>
+                            <br /><span style="color:blue">* Transfer rate displayed here is based on the recent data update from MoneyScanner admin team</span>
+                            <br /><span style="color:#943634">* Transfer time displayed here may vary with the transfer option you choose from various transfer options provided by bank or remittance provider</span>
+                            <br /><span style="color:#f79646">* Transfer fee displayed here may vary with the transfer option you choose from various transfer options provided by bank or remittance provider</span>
+                        </p>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- <h3>ADDS</h3> -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-9499017033591601"
+                             data-ad-slot="8291834177"
+                             data-ad-format="auto"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer"></div>
+    <script>
+        $(document).ready(function () {
+            var serviceurl = "http://services.moneyscanner.net/";
+            var filterdata = ["todaysrate", "transferfee", "amountreceived", "transfertime"];
+            var filterdatav = ["disable", "disable", "disable", "disable"];
+            $('.filter-btn').click(function () {
+                $('#' + this.id + '-sub').toggleClass('hide');
+                $('#' + this.id + '-group').toggleClass('btn-group');
+                for (i = 0; i < filterdata.length; i++) {
+                    if (filterdata[i] === this.id) {
+                        if (filterdatav[i] === "des" || filterdatav[i] === "asc") {
+                            filterdatav[i] = "disable";
+                        } else {
+                            filterdatav[i] = "des";
+                        }
+                    }
+                }
+                GetComparelist($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val(), $('#TxToCur').val());
+            });
+            $('.filter-AD-btn').click(function () {
+                $('#' + this.id + ' span').toggleClass('caret-up');
+                for (i = 0; i < filterdata.length; i++) {
+                    if (filterdata[i]+"-sub" === this.id) {
+                        if (filterdatav[i] === "des") {
+                            filterdatav[i] = "asc";
+                        } else {
+                            filterdatav[i] = "des";
+                        }
+                    }
+                }
+                GetComparelist($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val(), $('#TxToCur').val());
+            });
+            $('#compare-btn').click(function () {
+                GetComparelist($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val(), $('#TxToCur').val());
+                //  localStorage.setItem("FromTxVal", $('#TxFromCur').val());
+                // localStorage.setItem("FromCur", $('#FromCur').val());
+                // localStorage.setItem("ToCur", $('#ToCur').val());
+                // localStorage.setItem("ToTxVal", $('#TxToCur').val());
+            });
+
+            function GetToTxVal(FromCurVal2, ToCurVal2, FromTxVal,flag) {
+                //alert(FromTxVal + ' ' + FromCurVal2 + ' ' + ToCurVal2);
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/gettovalue/",
+                    data: {
+                        "strfromval": FromTxVal,
+                        "strFCurr": FromCurVal2,
+                        "strTCurr": ToCurVal2
+                    },
+                    success: function (da) {
+                        $('#TxToCur').val(da);
+                        if (flag === 0) {
+                            GetComparelist($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val(), $('#TxToCur').val());
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+            function GetFromTxVal(FromCurVal0, ToCurVal0, ToTxVal0) {
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/getfromvalue/",
+                    data: {
+                        "strtoval": ToTxVal0,
+                        "strFCurr": FromCurVal0,
+                        "strTCurr": ToCurVal0
+                    },
+                    success: function (da) {
+                        $('#TxFromCur').val(da);
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+            function GetFromCur() {
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/GetFromCur/",
+                    success: function (da) {
+                        $('#FromCur')
+                                .find('option')
+                                .remove()
+                        ;
+                        if (da.length == 0) {
+                            $('#FromCur').append($('<option>').text('Select').attr('value', 'Select'));
+                            console.log("NO DATA!")
+                        } else {
+                            $.each(da, function (i, value) {
+                                $('#FromCur').append($('<option>').text(value).attr('value', value));
+                            });
+                            if (localStorage.getItem('FromCur') && localStorage.getItem("FromTxVal") && localStorage.getItem("ToCur")) {
+                                $('#FromCur').val(localStorage.getItem('FromCur'));
+                                $('#TxFromCur').val(localStorage.getItem("FromTxVal"));
+                                GetToCur(localStorage.getItem("ToCur"), 0);
+                                //$('#TxToCur').val( localStorage.getItem("ToTxVal"));
+                                localStorage.setItem("FromTxVal", "");
+                                localStorage.setItem("FromCur", "");
+                                localStorage.setItem("ToCur", "");
+                                localStorage.setItem("ToTxVal", "");
+                            } else {
+                                $('#TxFromCur').val('1000');
+                                $('#FromCur').val('USD');
+                                GetToCur('INR', 0);
+                                // GetComparelist('USD', 'INR', 1, 65.75);
+                            }
+
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+            GetFromCur();
+            function GetToCur(ToCurVal1, flag) {
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/GetToCur/",
+                    data: {
+                        "strfrom": $('#FromCur').val()
+                    },
+                    success: function (da) {
+                        $('#ToCur')
+                                .find('option')
+                                .remove()
+                        ;
+                        if (da.length == 0) {
+                            $('#ToCur').append($('<option>').text('Select').attr('value', 'Select'));
+                            console.log("NO DATA!")
+                        } else {
+                            $.each(da, function (i, value) {
+                                $('#ToCur').append($('<option>').text(value).attr('value', value));
+                            });
+                            if (ToCurVal1 != undefined) {
+                                $("#ToCur").val(ToCurVal1);
+                                GetToTxVal($('#FromCur').val(), ToCurVal1, $('#TxFromCur').val(), flag);
+
+                            } else {
+                                $("#ToCur").val($("#ToCur option:first").val());
+                                GetToTxVal($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val());
+                            }
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+            $('select').change(function () {
+                if (this.id === 'FromCur') {
+                    GetToCur();
+                } else if (this.id === 'ToCur') {
+                    GetToTxVal($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val());
+                }
+            });
+            function GetComparelist(fromcur, tocur, fcurval, tcurval) {
+                //alert(fromcur + ' ' + tocur + ' ' + fcurval + ' ' + tcurval);
+               var cursyb = "fa-usd";
+               var curimg = false;
+                if (tocur === 'USD') {
+                    cursyb = "fa-usd";
+                }
+                if (tocur === 'INR') {
+                    cursyb = "fa-inr";
+                }
+                if (tocur === 'GBP') {
+                    cursyb = "fa-gbp";
+                }
+                if (tocur === 'CNY') {
+                    cursyb = "fa-jpy";
+                }
+                 if (tocur === 'EUR') {
+                    cursyb = "fa-eur";
+                }
+                /*if (tocur === 'SEK') {
+                    cursyb = "fa-sek";
+                }*/
+                if (tocur === 'PHP' || tocur === 'MYR' || tocur === 'DKK' || tocur === 'SEK') {
+                    curimg = true;
+                    cursyb = tocur;
+                }
+                var htmldata = "<li class=\"list-group-item row text-center hidden-xs\"><div class=\"col-sm-2 col-md-2\"></div><div class=\"col-sm-2 col-md-2\">Today's Rate</div><div class=\"col-sm-2 col-md-2\">Transfer Fee</div><div class=\"col-sm-2 col-md-2\">Amount Receive</div><div class=\"col-sm-2 col-md-2\">Transfer Time</div><div class=\"col-sm-2 col-md-2\"></div></li>";
+                var htmlda = '';
+                var jdatafilter1 = [];
+                for (i = 0; i < filterdata.length; i++) {
+                    if (filterdatav[i] != "disable") {
+                        jdatafilter1.push('{"strKey":"' + filterdata[i] + '","strSort":"' + filterdatav[i] + '"}');
+                    }
+
+                }
+                jdatafilter1 = '[' + jdatafilter1 + ']';
+               // alert(jdatafilter1);
+                var json = $.parseJSON(jdatafilter1);
+                console.log(json);
+		 var datasort = [
+        {strKey:"todaysrate",strSort:"asc"}        
+    ];      
+
+   
+
+
+                $.ajax({
+		   
+                    type: "POST",
+                    url: serviceurl + "Account/getcomparison/",
+                    data: {
+                        "strfromval": fcurval,
+                        "strtoval": tcurval,
+                        "strFCurr": fromcur,
+                        "strTcurr": tocur,
+                        "strlist":JSON.stringify(json)
+                    },
+                    success: function (da) {
+                        if (da.length == 0) {
+                            console.log("NO DATA!")
+                            htmlda += "<div class=\"col-md-12 text-center\">Sorry no data, Please modifiy your compare</div>";
+                        } else {
+                            htmlda = '';
+                            $.each(da, function (i, value) {
+                                htmlda += "<li class=\"list-group-item text-center row\">";
+                                htmlda += "<div class=\"col-xs-7 visible-xs-block\"><br />Company</div>";
+                                htmlda += "<div class=\"col-xs-5 col-sm-2  col-md-2 list_logo_1\">";
+                                htmlda += "<img src=\"images/ProviderLogo/" + value.ImageName + ".png\" title=\"" + value.ImageName + "\"alt=\"" + value.ImageName + "\"><br />";
+                                var r = parseInt(value.rating);
+                                var r1 = 5 - r;
+                                var rd = Math.round(value.rating) - parseFloat(value.rating);
+                                if (rd != 0) {
+                                    r1--;
+                                }
+                                for (i = 0; i < r; i++) {
+                                    htmlda += "<i class=\"fa fa-star\"></i>";
+                                }
+                                if (rd > 0 && rd < 1) {
+                                    htmlda += "<i class=\"fa fa-star-half-o\"></i>";
+                                }
+                                for (j = 0; j < r1; j++) {
+                                    htmlda += "<i class=\"fa fa-star-o\"></i>";
+                                }
+                                //htmlda +="<i class=\"fa fa-star\"></i>";
+                                //htmlda +="<i class=\"fa fa-star\"></i>";
+                                //htmlda +="<i class=\"fa fa-star\"></i>";
+                                //htmlda +="<i class=\"fa fa-star-o\"></i>";
+                                htmlda += "</div>";
+                                htmlda += "<div class=\"col-xs-7 visible-xs-block\"><br />Today's Rate</div>";
+                                if (curimg == true) {
+                                    htmlda += "<div class=\"col-xs-5 col-sm-2 col-md-2\"><br /><span style=\"color:blue\"><img style='width: 13px;margin-top: -4px;' src=\"images/currency_symbol/blue/" + cursyb + ".png \" /> " + value.todaysrate + "*</span></div>";
+                                }else{
+                                    htmlda += "<div class=\"col-xs-5 col-sm-2 col-md-2\"><br /><span style=\"color:blue\"><i class=\"fa " + cursyb + "\"></i> " + value.todaysrate + "*</span></div>";
+                                }
+                                htmlda += "<div class=\"col-xs-7 visible-xs-block\"><br />Transfer Fee</div>";
+                                fcursyb = "fa-usd";
+                                fcurimg = false;
+                                if (value.transfercurrency === 'USD') {
+                                    fcursyb = "fa-usd";
+                                }
+                                if (value.transfercurrency === 'INR') {
+                                    fcursyb = "fa-inr";
+                                }
+                                if (value.transfercurrency === 'GBP') {
+                                    fcursyb = "fa-gbp";
+                                }
+                                if (value.transfercurrency === 'CNY') {
+                                    fcursyb = "fa-jpy";
+                                }
+                                 if (value.transfercurrency === 'EUR') {
+                                    fcursyb = "fa-eur";
+                                }
+                               /* if (value.transfercurrency === 'SEK') {
+                                    fcursyb = "fa-sek";
+                                }*/
+                                if (value.transfercurrency === 'PHP' || value.transfercurrency === 'MYR' || value.transfercurrency === 'DKK' || value.transfercurrency ==='SEK') {
+                                    fcurimg = true;
+                                    fcursyb = value.transfercurrency;
+                                }
+                                if (fcurimg == true) {
+                                    htmlda += "<div class=\"col-xs-5 col-sm-2 col-md-2\"><br /><span style=\"color:#f79646\"><img style='width: 13px;margin-top: -4px;' src=\"images/currency_symbol/orange/" + fcursyb + ".png \" /> " + value.transferfee + "*</span></div>";
+                                } else {
+                                    htmlda += "<div class=\"col-xs-5 col-sm-2 col-md-2\"><br /><span style=\"color:#f79646\"><i class=\"fa " + fcursyb + "\"></i> " + value.transferfee + "*</span></div>";
+                                }
+                                htmlda += "<div class=\"col-xs-7 visible-xs-block\"><br />Amount Receive</div>";
+                                var amt = value.amountreceived;
+                                if (curimg == true) {
+                                    htmlda += "<div class=\"col-xs-5 col-sm-2 col-md-2 bg-info\"><br /><img style='width: 13px;margin-top: -4px;' src=\"images/currency_symbol/brown/" + cursyb + ".png \" /> " + ' ' + parseFloat(amt).toFixed(3) + "<br /><br /></div>";
+                                } else {
+                                    htmlda += "<div class=\"col-xs-5 col-sm-2 col-md-2 bg-info\"><br /><i class=\"fa " + cursyb + "\"></i>" + ' ' + parseFloat(amt).toFixed(3) + "<br /><br /></div>";
+                                }
+                                htmlda += "<div class=\"col-xs-7 visible-xs-block\"><br />Transfer Time</div>";
+                                htmlda += "<div class=\"col-xs-5 col-sm-2 col-md-2 bg-success\"><br /><span style=\"color:#943634\">" + value.transfertime + "*</span><br /><br /></div>";
+                                htmlda += "<div class=\"col-xs-12 col-sm-2 col-md-2\"><br /><a target=\"_blank\" class=\"btn btn-info\" href=\"" + value.send + "\">Send</a>";
+                                htmlda += "</div>";
+                                htmlda += "</li>";
+                            });
+                            $('#comparelist-grid').html(htmldata + htmlda);
+                        }
+                        //alert($('#ToCur').val());
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                    }
+                });
+            }
+
+
+            $("#TxFromCur").keyup(function () {
+                if ($("#TxFromCur").val() != '') {
+                    GetToTxVal($('#FromCur').val(), $('#ToCur').val(), $('#TxFromCur').val());
+                } else {
+                    GetToTxVal($('#FromCur').val(), $('#ToCur').val(), 0);
+                }
+            });
+            $("#TxToCur").keyup(function () {
+                if ($("#TxToCur").val() != '') {
+                    GetFromTxVal($('#FromCur').val(), $('#ToCur').val(), $('#TxToCur').val());
+                } else {
+                    GetFromTxVal($('#FromCur').val(), $('#ToCur').val(), 0);
+                }
+            });
+
+    });
+    </script>
+    
+</body>
+</html>

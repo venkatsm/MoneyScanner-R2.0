@@ -1,0 +1,201 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Money Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="text/javascript" src="Scripts/jquery-1.11.3.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-big-grid.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/device-loop.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Nav animation trigger-->
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+
+    <!-- Nav animation trigger-->
+    <script src="js/custom.js"></script>
+</head>
+<body data-spy="scroll" data-target="#header-nav-menu">
+    <input type="hidden" id="currentpage" value="username">
+    <div id="header"></div>
+    
+    <section id="myacct">
+      <!--  <div class="bg-danger text-center">BETA: You are using beta version of Moneyscanner</div> -->
+        <div class="container">
+            <div class="row">
+                <h1 class="text-center">My Profile</h1>
+                <div class="col-sm-5 col-md-5 col-md-offset-1">
+                    <form action="#" id="update-detailsform" method="post">
+                        <h3>Personal Details</h3>
+                        <br />
+                        <label>First Name</label>
+                        <input type="text" class="form-control" required placeholder="First Name" id="firstname1">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" required placeholder="Last Name" id="lastname1">
+
+                        <input type="text" class="form-control hide" required onkeypress="return isNumber(event)" name="phone" id="phone1" placeholder="Phone Number" value="0000000000">
+
+                        <input type="text" class="form-control hide" name="state" id="state1" placeholder="State" value="state">
+
+                        <input type="text" class="form-control hide" name="city" id="city1" placeholder="City" value="city">
+
+                        <input type="text" required class="form-control hide" onkeypress="return isNumber(event)" name="pincode" id="pincode1" placeholder="Zip/Pin Code" value="000000">
+
+                        <label>Country</label>
+                        <input type="text" class="form-control" placeholder="Country" required id="country1">
+                        
+                        <span class="help-block bg-danger hide" id="update-err"></span>
+                        <br/>
+                        <button type="submit" class="btn btn-info" id="updatebtn">Update Details</button>
+                        <br><br>
+                    </form>
+                </div>
+                <div class="col-sm-5 col-md-5">
+                    <form action="#" id="pswdchange-form" method="post">
+                        <h3>Change Your Password</h3>
+                        <br />
+                        <label>Enter Old Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Old Password" id="currentpswd">
+                        <label>Enter New Password</label>
+                        <input type="password" class="form-control" placeholder="Enter New Password" id="newpassword">
+                        <!--<label>Confirm New Password</label>
+                        <input type="password" class="form-control" placeholder="Confirm New Password">-->
+                        
+                        <span class="help-block bg-danger hide" id="chgpswd-err"></span><br>
+                        <button type="submit" class="btn btn-info">Change Password</button>
+                        <br><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div id="footer"></div>
+    <script>
+        var serviceurl = "http://services.moneyscanner.net/";
+        $('#update-err').addClass('hide');
+        $('#chgpswd-err').addClass('hide');
+        $(document).ready(function () {
+            if (localStorage.getItem("username") && localStorage.getItem("username") != "") {
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/GetUserDetails/",
+                    data: {
+                        "Email": localStorage.getItem("username"),
+                    },
+                    success: function (da) {
+                        $('#firstname1').val(da.FirstName);
+                        $('#lastname1').val(da.LastName);
+                        $('#country1').val(da.Country);
+                        // change menu UI fron login to logout and remove register button.
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                        localStorage.setItem("userdetails", "");
+                    }
+                });
+            }
+            $('#update-detailsform').submit(function () {
+                $('#update-err').removeClass('bg-success');
+                $('#update-err').addClass('bg-danger');
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/UpdateUserDetails/",
+                    data: {
+                        "Email": localStorage.getItem("username"),
+                        "FirstName": $("#firstname1").val(),
+                        "LastName": $("#lastname1").val(),
+                        "State": $("#state1").val(),
+                        "City": $("#city1").val(),
+                        "Zipcode": $("#pincode1").val(),
+                        "Country": $("#country1").val(),
+                        "Phone": $("#phone1").val()
+                    },
+                    success: function (da) {
+                        if (da === "Succeeded") {
+                            $('#update-err').html("Profile Updated Successfully");
+                            $('#update-err').removeClass('bg-danger');
+                            $('#update-err').addClass('bg-success');
+                            $('#update-err').removeClass('hide');
+                        } else {
+                            $('#update-err').html(da);
+                            $('#update-err').removeClass('hide');
+                        } // change menu UI fron login to logout and remove register button.
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                        localStorage.setItem("userdetails", "");
+                    }
+                });
+                return false;
+            });
+            $('#pswdchange-form').submit(function () {
+                $('#chgpswd-err').removeClass('bg-success');
+                $('#chgpswd-err').addClass('bg-danger');
+                $.ajax({
+                    crossDomain: true,
+                    cache: false,
+                    type: "POST",
+                    url: serviceurl + "Account/ChangePasswordUser/",
+                    data: {
+                        "Email": localStorage.getItem("username"),
+                        "CurrentPassword": $("#currentpswd").val(),
+                        "NewPassword": $("#newpassword").val()
+                    },
+                    success: function (da) {
+                        if (da === "Succeeded") {
+                            $('#chgpswd-err').html("Password Updated Successfully");
+                            $('#chgpswd-err').removeClass('bg-danger');
+                            $('#chgpswd-err').addClass('bg-success');
+                            $('#chgpswd-err').removeClass('hide');
+                            $("#currentpswd").val("");
+                            $("#newpassword").val("");
+                        } else {
+                            $('#chgpswd-err').html(da);
+                            $('#chgpswd-err').removeClass('hide');
+                        } // change menu UI fron login to logout and remove register button.
+                    },
+                    error: function (xhr, ajaxOptions, throwError) {
+                        localStorage.setItem("passwordupdate", "");
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Money Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="text/javascript" src="Scripts/jquery-1.11.3.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-big-grid.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link rel="stylesheet" href="css/device-loop.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Nav animation trigger-->
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+
+    <!-- Nav animation trigger-->
+    <script src="js/custom.js"></script>
+</head>
+<body data-spy="scroll" data-target="#header-nav-menu">
+    <input type="hidden" id="currentpage" value="home">
+    <div id="header"></div>
+
+    <!--Reset password-->
+    <section id="confirmation">
+        <h4 class="help-block bg-danger hide" id="clogin-err"></h4>
+    </section>
+    <!--End Reset password -->
+
+    <div id="footer"></div>
+    <script>
+        var serviceurl = "http://services.moneyscanner.net/";
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var key = getParameterByName("key");
+        var code = getParameterByName("code");
+            $('#clogin-err').removeClass('bg-success');
+            $('#clogin-err').addClass('bg-danger');
+            $.ajax({
+                crossDomain: true,
+                cache: false,
+                type: "POST",
+                url: serviceurl + "Account/ConfirmEmailUser/",
+                data: {
+                    "userId": key,
+                    "code":code
+                },
+                success: function (da) {
+                    localStorage.setItem("cemail", da);
+                    if (da === "Succeeded") {
+                        $('#clogin-err').removeClass('hide');
+                        $('#clogin-err').removeClass('bg-danger');
+                        $('#clogin-err').addClass('bg-success');
+                        $('#clogin-err').html("Email id verified. please login and redirect to home page");
+                    } else {
+                        var rs = da;
+                        $('#clogin-err').html(rs);
+                        $('#clogin-err').removeClass('hide');
+                    }
+                    // change menu UI fron login to logout and remove register button.
+
+                },
+                error: function (xhr, ajaxOptions, throwError) {
+                    localStorage.setItem("cemail", "");
+                }
+            });
+           
+    </script>
+    <!--<script>
+        $(function () {
+            $('#resetpswd').css({ height: $(window).innerHeight() - 50 - $('#footer').height() });
+            $(window).resize(function () {
+                $('#resetpswd').css({ height: $(window).innerHeight()-50- $('#footer').height() });
+            });
+        });
+    </script>-->
+    <style>
+        #footer-sec {
+            background-color: #000;
+            color: #808080;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+         h4#clogin-err {
+           padding: 10px;
+           margin: 10px;
+           border-radius: 5px;
+        }
+    </style>
+
+</body>
+</html>
